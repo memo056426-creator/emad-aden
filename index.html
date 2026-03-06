@@ -3,55 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مكتب عماد عدن العقاري</title>
+    <title>مكتب عماد عدن العقاري | فخامة الاستثمار</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #d4af37; --dark: #1a1a1a; --gray: #2c2c2c; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: var(--dark); color: white; text-align: center; }
-        header { background: linear-gradient(145deg, #222, #000); padding: 40px 20px; border-bottom: 3px solid var(--gold); }
-        .logo-img { width: 150px; height: 150px; border-radius: 50%; border: 2px solid var(--gold); margin-bottom: 15px; object-fit: cover; box-shadow: 0 0 15px rgba(212, 175, 55, 0.5); }
-        .logo-text { color: var(--gold); font-size: 2rem; margin-bottom: 5px; font-weight: bold; }
-        .services-bar { background: var(--gold); color: black; padding: 12px; font-weight: bold; display: flex; justify-content: center; gap: 20px; }
-        .container { width: 90%; max-width: 1200px; margin: auto; padding: 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 40px; }
-        .card { background: var(--gray); border: 1px solid #444; border-radius: 12px; padding: 25px; transition: 0.3s; }
-        .card:hover { border-color: var(--gold); transform: translateY(-5px); }
-        .card h3 { color: var(--gold); }
-        .whatsapp-btn { display: flex; align-items: center; justify-content: center; background: #25d366; color: white; text-decoration: none; padding: 12px; border-radius: 8px; font-weight: bold; margin-top: 20px; }
-        .address-box { background: #000; padding: 25px; border-radius: 12px; margin-top: 50px; border-right: 6px solid var(--gold); text-align: right; }
-        footer { padding: 30px; font-size: 0.8rem; color: #888; border-top: 1px solid #333; margin-top: 40px; }
-        .floating-wa { position: fixed; bottom: 25px; left: 25px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; z-index: 1000; }
+        :root { --gold: #d4af37; --dark-bg: #0a0a0a; --card-bg: #1a1a1a; --text-color: #e0e0e0; }
+        body { font-family: 'Cairo', sans-serif; margin: 0; background: var(--dark-bg); color: var(--text-color); line-height: 1.8; }
+        header { background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(20,20,20,0.8) 100%); padding: 60px 20px; text-align: center; border-bottom: 2px solid var(--gold); position: relative; }
+        .logo-img { width: 160px; height: 160px; border-radius: 50%; border: 3px solid var(--gold); margin-bottom: 20px; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); object-fit: cover; }
+        .hero-title { font-size: 2.8rem; color: var(--gold); margin: 10px 0; font-weight: 700; letter-spacing: 1px; }
+        .hero-sub { font-size: 1.2rem; color: #bbb; max-width: 700px; margin: auto; }
+        .investment-section { background: var(--card-bg); padding: 80px 20px; text-align: center; border-top: 1px solid #333; }
+        .section-title { color: var(--gold); font-size: 2.2rem; margin-bottom: 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1200px; margin: auto; padding: 20px; }
+        .card { background: #111; border: 1px solid #333; border-radius: 15px; padding: 35px; transition: all 0.4s ease; position: relative; overflow: hidden; }
+        .card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2); }
+        .card i { font-size: 3rem; color: var(--gold); margin-bottom: 20px; }
+        .card h3 { font-size: 1.5rem; margin-bottom: 15px; color: #fff; }
+        .card p { font-size: 1rem; color: #999; }
+        .why-us { background: #050505; padding: 80px 20px; }
+        .address-bar { background: linear-gradient(90deg, #1a1a1a, #000); padding: 30px; border-right: 8px solid var(--gold); border-radius: 10px; margin: 50px auto; max-width: 1000px; text-align: right; }
+        .whatsapp-btn { background: #25d366; color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.2rem; display: inline-flex; align-items: center; gap: 10px; margin-top: 30px; transition: 0.3s; }
+        .whatsapp-btn:hover { background: #128c7e; transform: scale(1.05); }
+        .floating-wa { position: fixed; bottom: 30px; left: 30px; background: #25d366; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0 5px 20px rgba(0,0,0,0.6); z-index: 1000; }
+        footer { padding: 40px; border-top: 1px solid #222; font-size: 0.9rem; color: #666; text-align: center; }
     </style>
 </head>
 <body>
+
 <header>
-    <img src="logo.jpg" alt="شعار مكتب عماد عدن" class="logo-img">
-    <div class="logo-text">مكتب عماد عدن العقاري</div>
-    <p>بيع - شراء - استثمار - تثمين العقارات</p>
+    <img src="logo.jpg" alt="مكتب عماد عدن العقاري" class="logo-img">
+    <h1 class="hero-title">مكتب عماد عدن العقاري</h1>
+    <p class="hero-sub">بوابتكم الموثوقة للاستثمار العقاري في قلب عدن.. خبرة تمتد لسنوات في السوق المحلي</p>
 </header>
-<div class="services-bar">
-    <span>• أراضي</span><span>• عمائر</span><span>• شقق</span><span>• فلل</span>
-</div>
+
+<section class="investment-section">
+    <div class="container">
+        <h2 class="section-title">لماذا الاستثمار العقاري في عدن؟</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>ملاذ آمن للقيمة</h3>
+                <p>يظل العقار هو الأصل الأمتن لحفظ قيمة أموالك ضد التقلبات الاقتصادية وضمان نمو مستدام لرأس المال.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-chart-line"></i>
+                <h3>عوائد استثمارية</h3>
+                <p>تتمتع عدن بطلب متزايد على السكن والتجارة، مما يضمن لك عوائد إيجارية مرتفعة وفرص إعادة بيع مربحة.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-city"></i>
+                <h3>مستقبل واعد</h3>
+                <p>موقع عدن الاستراتيجي يجعل من كل قطعة أرض أو مبنى فرصة ذهبية للمستقبل العمراني القادم.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="why-us">
+    <div class="container" style="text-align: center;">
+        <h2 class="section-title">خدماتنا العقارية</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>الأراضي والبيع</h3>
+                <p>نوفر لكم مساحات سكنية وتجارية بمواقع استراتيجية في عدن بضمانات كاملة.</p>
+            </div>
+            <div class="card">
+                <h3>العمائر والفلل</h3>
+                <p>شقق تمليك وإيجار وفلل فاخرة تناسب تطلعاتكم السكنية والاستثمارية.</p>
+            </div>
+            <div class="card">
+                <h3>تثمين العقارات</h3>
+                <p>نقدم خدمة التثمين الدقيق والاحترافي للعقارات وفقاً لأسعار السوق المحدثة.</p>
+            </div>
+        </div>
+        <a href="https://wa.me/967773571889" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> تواصل مع الخبير العقاري الآن</a>
+    </div>
+</section>
+
 <div class="container">
-    <div class="grid">
-        <div class="card">
-            <h3>قسم الأراضي</h3>
-            <p>يتوفر لدينا أراضي بمواقع استراتيجية في عدن</p>
-            <a href="https://wa.me/967773571889" class="whatsapp-btn"><i class="fab fa-whatsapp"></i>&nbsp; استفسر الآن</a>
-        </div>
-        <div class="card">
-            <h3>العمائر والفلل</h3>
-            <p>أرقى الوحدات السكنية بأفضل الأسعار</p>
-            <a href="https://wa.me/967773571889" class="whatsapp-btn"><i class="fab fa-whatsapp"></i>&nbsp; استفسر الآن</a>
-        </div>
-    </div>
-    <div class="address-box">
-        <h3>📍 الموقع:</h3>
+    <div class="address-bar">
+        <h3 style="color: var(--gold);"><i class="fas fa-map-marker-alt"></i> موقعنا الرسمي:</h3>
         <p>عدن - القاهرة - شارع السنافر العام - قبل بريد القاهرة</p>
-        <p>📞 للتواصل: 773571889</p>
+        <p><i class="fas fa-phone"></i> للتواصل المباشر: 773571889</p>
     </div>
 </div>
+
 <a href="https://wa.me/967773571889" class="floating-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
-<footer><p>جميع الحقوق محفوظة لمكتب عماد عدن العقاري &copy; 2026</p></footer>
+
+<footer>
+    <p>جميع الحقوق محفوظة لمكتب عماد عدن العقاري &copy; 2026</p>
+</footer>
+
 </body>
 </html>
