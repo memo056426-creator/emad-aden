@@ -7,76 +7,51 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --gold: #d4af37; --dark: #1a1a1a; --gray: #2c2c2c; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: var(--dark); color: white; line-height: 1.6; }
-        header { background: linear-gradient(145deg, #222, #000); padding: 40px 20px; text-align: center; border-bottom: 3px solid var(--gold); }
-        .logo-text { color: var(--gold); font-size: 2.5rem; margin-bottom: 10px; font-weight: bold; }
-        .services-bar { background: var(--gold); color: black; padding: 10px; font-weight: bold; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: var(--dark); color: white; text-align: center; }
+        header { background: linear-gradient(145deg, #222, #000); padding: 40px 20px; border-bottom: 3px solid var(--gold); }
+        .logo-img { width: 150px; height: 150px; border-radius: 50%; border: 2px solid var(--gold); margin-bottom: 15px; object-fit: cover; box-shadow: 0 0 15px rgba(212, 175, 55, 0.5); }
+        .logo-text { color: var(--gold); font-size: 2rem; margin-bottom: 5px; font-weight: bold; }
+        .services-bar { background: var(--gold); color: black; padding: 12px; font-weight: bold; display: flex; justify-content: center; gap: 20px; }
         .container { width: 90%; max-width: 1200px; margin: auto; padding: 20px; }
-        .hero { text-align: center; padding: 60px 20px; }
-        .hero h2 { color: var(--gold); font-size: 2rem; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 40px; }
-        .card { background: var(--gray); border: 1px solid #444; border-radius: 12px; padding: 20px; transition: 0.3s; position: relative; overflow: hidden; }
+        .card { background: var(--gray); border: 1px solid #444; border-radius: 12px; padding: 25px; transition: 0.3s; }
         .card:hover { border-color: var(--gold); transform: translateY(-5px); }
-        .card h3 { color: var(--gold); margin-top: 0; }
+        .card h3 { color: var(--gold); }
         .whatsapp-btn { display: flex; align-items: center; justify-content: center; background: #25d366; color: white; text-decoration: none; padding: 12px; border-radius: 8px; font-weight: bold; margin-top: 20px; }
-        .address-box { background: #000; padding: 20px; border-radius: 10px; margin-top: 50px; border-right: 5px solid var(--gold); }
-        footer { text-align: center; padding: 30px; font-size: 0.8rem; color: #888; }
-        .floating-wa { position: fixed; bottom: 20px; left: 20px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.5); z-index: 1000; }
+        .address-box { background: #000; padding: 25px; border-radius: 12px; margin-top: 50px; border-right: 6px solid var(--gold); text-align: right; }
+        footer { padding: 30px; font-size: 0.8rem; color: #888; border-top: 1px solid #333; margin-top: 40px; }
+        .floating-wa { position: fixed; bottom: 25px; left: 25px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; z-index: 1000; }
     </style>
 </head>
 <body>
-
 <header>
+    <img src="logo.jpg" alt="شعار مكتب عماد عدن" class="logo-img">
     <div class="logo-text">مكتب عماد عدن العقاري</div>
     <p>بيع - شراء - استثمار - تثمين العقارات</p>
 </header>
-
 <div class="services-bar">
-    <span>• أراضي</span>
-    <span>• عمائر</span>
-    <span>• شقق</span>
-    <span>• فلل</span>
+    <span>• أراضي</span><span>• عمائر</span><span>• شقق</span><span>• فلل</span>
 </div>
-
 <div class="container">
-    <section class="hero">
-        <h2>عقاراتك في عدن بأمان وثقة</h2>
-        <p>نخدمكم في كافة مناطق عدن بأفضل العروض العقارية وباحترافية تامة</p>
-    </section>
-
     <div class="grid">
         <div class="card">
             <h3>قسم الأراضي</h3>
-            <p>يتوفر لدينا مساحات مختلفة (سكني - تجاري) في أرقى مناطق عدن.</p>
-            <a href="https://wa.me/967773571889?text=استفسار عن الاراضي" class="whatsapp-btn"><i class="fab fa-whatsapp"></i>&nbsp; استفسر الآن</a>
+            <p>يتوفر لدينا أراضي بمواقع استراتيجية في عدن</p>
+            <a href="https://wa.me/967773571889" class="whatsapp-btn"><i class="fab fa-whatsapp"></i>&nbsp; استفسر الآن</a>
         </div>
         <div class="card">
-            <h3>قسم الشقق والفلل</h3>
-            <p>شقق تمليك وإيجار وفلل فاخرة بتصاميم حديثة ومواقع استراتيجية.</p>
-            <a href="https://wa.me/967773571889?text=استفسار عن الشقق والفلل" class="whatsapp-btn"><i class="fab fa-whatsapp"></i>&nbsp; استفسر الآن</a>
-        </div>
-        <div class="card">
-            <h3>التثمين والاستثمار</h3>
-            <p>نقدم خدمة تثمين العقارات وإدارة الاستثمارات العقارية بخبرة طويلة.</p>
-            <a href="https://wa.me/967773571889?text=طلب تثمين او استثمار" class="whatsapp-btn"><i class="fab fa-whatsapp"></i>&nbsp; اطلب الخدمة</a>
+            <h3>العمائر والفلل</h3>
+            <p>أرقى الوحدات السكنية بأفضل الأسعار</p>
+            <a href="https://wa.me/967773571889" class="whatsapp-btn"><i class="fab fa-whatsapp"></i>&nbsp; استفسر الآن</a>
         </div>
     </div>
-
     <div class="address-box">
-        <h3>📍 موقعنا:</h3>
+        <h3>📍 الموقع:</h3>
         <p>عدن - القاهرة - شارع السنافر العام - قبل بريد القاهرة</p>
         <p>📞 للتواصل: 773571889</p>
     </div>
 </div>
-
-<a href="https://wa.me/967773571889" class="floating-wa" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-</a>
-
-<footer>
-    <p>جميع الحقوق محفوظة لمكتب عماد عدن العقاري &copy; 2026</p>
-</footer>
-
+<a href="https://wa.me/967773571889" class="floating-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<footer><p>جميع الحقوق محفوظة لمكتب عماد عدن العقاري &copy; 2026</p></footer>
 </body>
 </html>
-
