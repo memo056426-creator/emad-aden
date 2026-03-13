@@ -9,39 +9,30 @@
     <style>
         :root { --gold: #d4af37; --dark-bg: #0a0a0a; --card-bg: #1a1a1a; --text-color: #e0e0e0; }
         body { font-family: 'Cairo', sans-serif; margin: 0; background: var(--dark-bg); color: var(--text-color); line-height: 1.8; }
-        header { background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(20,20,20,0.8) 100%); padding: 60px 20px; text-align: center; border-bottom: 2px solid var(--gold); position: relative; }
+        header { background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(20,20,20,0.8) 100%); padding: 60px 20px; text-align: center; border-bottom: 2px solid var(--gold); }
         .logo-img { width: 160px; height: 160px; border-radius: 50%; border: 3px solid var(--gold); margin-bottom: 20px; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); object-fit: cover; }
-        .hero-title { font-size: 2.8rem; color: var(--gold); margin: 10px 0; font-weight: 700; letter-spacing: 1px; }
+        .hero-title { font-size: 2.8rem; color: var(--gold); margin: 10px 0; font-weight: 700; }
         .hero-sub { font-size: 1.2rem; color: #bbb; max-width: 700px; margin: auto; }
         
-        /* تنسيق خدمة طلب عقار في بداية الموقع */
-        .top-request-section { padding: 40px 20px; background: var(--dark-bg); }
-        .request-card { background: #111; border: 1px solid #333; border-top: 4px solid var(--gold); border-radius: 15px; padding: 30px; max-width: 800px; margin: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .form-title { color: var(--gold); font-size: 1.8rem; margin-bottom: 10px; text-align: center; }
-        .form-desc { color: #999; font-size: 0.95rem; margin-bottom: 25px; text-align: center; }
-        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
-        .main-input { width: 100%; padding: 12px; background: #0a0a0a; border: 1px solid #333; color: white; border-radius: 8px; font-family: 'Cairo'; box-sizing: border-box; }
-        .main-input:focus { border-color: var(--gold); outline: none; }
-        .submit-main { background: var(--gold); color: black; border: none; padding: 15px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; font-size: 1.1rem; transition: 0.3s; margin-top: 10px; }
-        .submit-main:hover { background: #b8952d; transform: scale(1.01); }
-
-        .safe-guide { margin-top: 40px; border-top: 1px solid #222; padding-top: 25px; }
-        .guide-item { margin-bottom: 15px; text-align: right; }
-        .guide-item h4 { color: var(--gold); margin-bottom: 5px; font-size: 1.1rem; }
-        .guide-item p { color: #bbb; font-size: 0.9rem; margin: 0; }
-
-        .investment-section { background: var(--card-bg); padding: 60px 20px; text-align: center; border-top: 1px solid #333; }
-        .section-title { color: var(--gold); font-size: 2.2rem; margin-bottom: 40px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 1200px; margin: auto; padding: 20px; }
-        .card { background: #111; border: 1px solid #333; border-radius: 15px; padding: 30px; transition: 0.4s; text-align: center; }
-        .card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 15px; }
-        .card h3 { color: #fff; margin-bottom: 10px; }
-        .card p { color: #999; font-size: 0.95rem; }
+        /* الزر العائم لطلب العقار */
+        .floating-request { position: fixed; bottom: 30px; right: 30px; background: var(--gold); color: black; padding: 15px 25px; border-radius: 50px; font-weight: bold; text-decoration: none; z-index: 1000; box-shadow: 0 5px 20px rgba(212,175,55,0.4); display: flex; align-items: center; gap: 10px; cursor: pointer; border: none; font-family: 'Cairo'; }
         
+        /* النافذة المنبثقة (Modal) */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; padding: 20px; }
+        .modal-content { background: #111; border: 1px solid var(--gold); padding: 30px; border-radius: 15px; width: 100%; max-width: 500px; position: relative; }
+        .close-modal { position: absolute; top: 10px; left: 15px; color: var(--gold); font-size: 25px; cursor: pointer; }
+        
+        .main-input { width: 100%; padding: 12px; background: #0a0a0a; border: 1px solid #333; color: white; border-radius: 8px; margin-bottom: 15px; font-family: 'Cairo'; box-sizing: border-box; }
+        .submit-main { background: var(--gold); color: black; border: none; padding: 15px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; font-size: 1.1rem; }
+
+        /* باقي التنسيقات */
+        .investment-section { background: var(--card-bg); padding: 60px 20px; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 1200px; margin: auto; }
+        .card { background: #111; border: 1px solid #333; border-radius: 15px; padding: 30px; text-align: center; }
+        .card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 15px; }
         .address-bar { background: #111; padding: 25px; border-right: 6px solid var(--gold); border-radius: 10px; margin: 40px auto; max-width: 1000px; text-align: right; }
-        .floating-wa { position: fixed; bottom: 30px; left: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.6); z-index: 1000; text-decoration: none; }
-        footer { padding: 30px; text-align: center; color: #666; font-size: 0.85rem; border-top: 1px solid #222; }
-        @media (max-width: 600px) { .input-row { grid-template-columns: 1fr; } .hero-title { font-size: 1.8rem; } }
+        .floating-wa { position: fixed; bottom: 30px; left: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 1000; text-decoration: none; }
+        footer { padding: 30px; text-align: center; color: #666; border-top: 1px solid #222; }
     </style>
 </head>
 <body>
@@ -52,58 +43,50 @@
     <p class="hero-sub">فخامة الاستثمار في قلب عدن</p>
 </header>
 
-<section class="top-request-section">
-    <div class="request-card">
-        <h2 class="form-title">خدمة طلب عقار خاص</h2>
-        <p class="form-desc">اترك طلبك وسنتواصل معك بأفضل العروض سراً</p>
+<section class="investment-section">
+    <h2 style="color: var(--gold); margin-bottom: 40px; font-size: 2rem;">خدماتنا العقارية</h2>
+    <div class="grid">
+        <div class="card"><i class="fas fa-home"></i><h3>الأراضي والبيع</h3><p>مساحات سكنية وتجارية بضمانات كاملة.</p></div>
+        <div class="card"><i class="fas fa-building"></i><h3>العمائر والفلل</h3><p>خيارات سكنية فاخرة تلبي تطلعاتكم.</p></div>
+        <div class="card"><i class="fas fa-hand-holding-usd"></i><h3>تثمين العقارات</h3><p>تقييم دقيق وفق أسعار السوق المحدثة.</p></div>
+    </div>
+</section>
+
+<section style="padding: 60px 20px;">
+    <div style="max-width: 800px; margin: auto; background: #111; padding: 30px; border-radius: 15px; border-right: 5px solid #c0392b;">
+        <h2 style="color: #c0392b; margin-bottom: 20px;">دليل التملك الآمن في عدن</h2>
+        <p>1. <b>فحص الملكية:</b> مطابقة البيانات في السجل العقاري ومصلحة الأراضي.</p>
+        <p>2. <b>المخططات:</b> التأكد من قانونية الموقع ضمن المخططات الحضرية.</p>
+        <p>3. <b>التوثيق:</b> إجراءات قانونية وقضائية كاملة لضمان حقك.</p>
+    </div>
+</section>
+
+<div class="address-bar">
+    <h3 style="color: var(--gold);"><i class="fas fa-map-marker-alt"></i> موقعنا الرسمي:</h3>
+    <p>عدن - القاهرة - شارع السنافر العام - قبل بريد القاهرة</p>
+</div>
+
+<button class="floating-request" onclick="toggleModal()">
+    <i class="fas fa-edit"></i> اطلب عقارك الخاص
+</button>
+
+<div id="requestModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="toggleModal()">&times;</span>
+        <h2 style="color: var(--gold); text-align: center;">طلب عقار خاص</h2>
+        <p style="text-align: center; font-size: 0.9rem; color: #999;">اترك طلبك وسنتواصل معك سراً</p>
         <form id="propertyForm">
-            <div class="input-row">
-                <input type="text" id="userName" class="main-input" placeholder="الاسم الكامل" required>
-                <input type="tel" id="userPhone" class="main-input" placeholder="رقم التواصل" required>
-            </div>
+            <input type="text" id="userName" class="main-input" placeholder="الاسم الكامل" required>
+            <input type="tel" id="userPhone" class="main-input" placeholder="رقم التواصل" required>
             <select id="propertyType" class="main-input" required>
                 <option value="">نوع العقار...</option>
-                <option value="أرض سكنية">أرض سكنية</option>
-                <option value="أرض تجارية">أرض تجارية</option>
-                <option value="فلل وعمائر">فلل وعمائر</option>
-                <option value="شقق تمليك">شقق تمليك</option>
+                <option value="أرض">أرض</option>
+                <option value="فيلا/عمارة">فيلا أو عمارة</option>
+                <option value="شقة">شقة تمليك</option>
             </select>
-            <textarea id="userDetails" class="main-input" rows="3" placeholder="الميزانية والمنطقة المطلوبة..."></textarea>
-            <button type="button" onclick="sendToWhatsApp()" class="submit-main">إرسال الطلب للخبير</button>
+            <textarea id="userDetails" class="main-input" rows="3" placeholder="الميزانية والمنطقة..."></textarea>
+            <button type="button" onclick="sendToWhatsApp()" class="submit-main">إرسال عبر واتساب</button>
         </form>
-
-        <div class="safe-guide">
-            <h3 style="color: #c0392b; font-size: 1.2rem; margin-bottom: 15px;">دليل التملك الآمن في عدن</h3>
-            <div class="guide-item">
-                <h4>1. فحص الملكية الرسمي</h4>
-                <p>مطابقة بيانات العقار في السجل العقاري ومصلحة الأراضي لضمان خلوه من النزاعات.</p>
-            </div>
-            <div class="guide-item">
-                <h4>2. مطابقة المخططات</h4>
-                <p>التأكد من وقوع العقار ضمن المخططات الحضرية الرسمية لضمان قانونية الموقع.</p>
-            </div>
-            <div class="guide-item">
-                <h4>3. التوثيق القضائي</h4>
-                <p>توثيق رسمي وقضائي يحمي حقوق المشتري والبائع بشكل قطعي.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="investment-section">
-    <h2 class="section-title">لماذا نحن؟</h2>
-    <div class="grid">
-        <div class="card"><i class="fas fa-shield-alt"></i><h3>ملاذ آمن</h3><p>حفظ قيمة أموالك ضد التقلبات الاقتصادية.</p></div>
-        <div class="card"><i class="fas fa-chart-line"></i><h3>عوائد مربحة</h3><p>طلب متزايد يضمن لك نمو استثماراتك.</p></div>
-        <div class="card"><i class="fas fa-city"></i><h3>مستقبل واعد</h3><p>موقع استراتيجي لفرص عمرانية قادمة.</p></div>
-    </div>
-</section>
-
-<div class="container">
-    <div class="address-bar">
-        <h3 style="color: var(--gold);"><i class="fas fa-map-marker-alt"></i> موقعنا الرسمي:</h3>
-        <p>عدن - القاهرة - شارع السنافر العام - قبل بريد القاهرة</p>
-        <p><i class="fas fa-phone"></i> للتواصل المباشر: 773571889</p>
     </div>
 </div>
 
@@ -112,19 +95,24 @@
 <footer><p>جميع الحقوق محفوظة لمكتب عماد عدن العقاري © 2026</p></footer>
 
 <script>
+function toggleModal() {
+    const modal = document.getElementById('requestModal');
+    modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
+}
+
 function sendToWhatsApp() {
     const name = document.getElementById('userName').value;
     const phone = document.getElementById('userPhone').value;
     const type = document.getElementById('propertyType').value;
     const details = document.getElementById('userDetails').value;
-    if(name == "" || phone == "" || type == "") { alert("يرجى تعبئة البيانات الأساسية"); return; }
-    const myNumber = "967773571889";
-    const message = `طلب عقار جديد من الموقع:
-الاسم: ${name}
-التواصل: ${phone}
-النوع: ${type}
-تفاصيل: ${details}`;
-    window.open(`https://wa.me/${myNumber}?text=${encodeURIComponent(message)}`, '_blank');
+    if(!name || !phone || !type) { alert("عبِ البيانات كاملة يا شيخ"); return; }
+    const msg = `طلب عقار خاص:\nالاسم: ${name}\nالتواصل: ${phone}\nالنوع: ${type}\nالتفاصيل: ${details}`;
+    window.open(`https://wa.me/967773571889?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+// إغلاق النافذة عند الضغط خارجها
+window.onclick = function(event) {
+    if (event.target == document.getElementById('requestModal')) toggleModal();
 }
 </script>
 </body>
