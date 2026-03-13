@@ -1,51 +1,146 @@
-<a href="https://wa.me/967773571889" class="whatsapp-float" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-</a>
-
 <style>
-.whatsapp-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25d366;
-    color: #FFF;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 2px 2px 3px #999;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.whatsapp-float img { width: 35px; }
+    /* تنسيقات عامة لتناسب هوية المكتب الفخمة */
+    .ea-container {
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 20px;
+        font-family: 'Cairo', sans-serif;
+        direction: rtl;
+        text-align: right;
+    }
+
+    /* قسم طلب العقار */
+    .ea-request-box {
+        background: #1a2a3a;
+        color: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        margin-bottom: 50px;
+    }
+
+    .ea-request-box h2 {
+        color: #c5a059;
+        margin-bottom: 10px;
+        font-size: 28px;
+    }
+
+    .ea-request-box p {
+        color: #ddd;
+        margin-bottom: 25px;
+    }
+
+    .ea-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .ea-form input, .ea-form select, .ea-form textarea {
+        padding: 15px;
+        border: 1px solid #34495e;
+        border-radius: 10px;
+        background: #2c3e50;
+        color: white;
+        font-size: 16px;
+        outline: none;
+    }
+
+    .ea-form textarea {
+        grid-column: span 2;
+        height: 120px;
+    }
+
+    .ea-form button {
+        grid-column: span 2;
+        padding: 15px;
+        background: #c5a059;
+        color: #1a2a3a;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: 0.3s;
+    }
+
+    .ea-form button:hover {
+        background: #e2c08d;
+        transform: translateY(-2px);
+    }
+
+    /* قسم النصائح */
+    .ea-guide-title {
+        color: #1a2a3a;
+        border-right: 6px solid #c5a059;
+        padding-right: 15px;
+        margin-bottom: 30px;
+    }
+
+    .ea-guide-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+    }
+
+    .ea-guide-card {
+        background: #f8f9fa;
+        padding: 25px;
+        border-radius: 15px;
+        border-right: 4px solid #c5a059;
+        transition: 0.3s;
+    }
+
+    .ea-guide-card:hover {
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+
+    .ea-guide-card h3 {
+        color: #c5a059;
+        margin-bottom: 15px;
+        font-size: 20px;
+    }
+
+    @media (max-width: 768px) {
+        .ea-form { grid-template-columns: 1fr; }
+        .ea-form textarea, .ea-form button { grid-column: span 1; }
+    }
 </style>
 
-<section id="request-property" style="padding: 40px; background: #f9f9f9; text-align: center;">
-    <h2 style="color: #2c3e50;">خدمة طلب عقار خاص</h2>
-    <p>بسبب خصوصية عروضنا وحرصنا على سرية البيانات، اترك طلبك وسنقوم بالتواصل معك لتزويدك بالعروض المتاحة.</p>
-    <form style="max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 15px;">
-        <input type="text" placeholder="الاسم الكامل" required style="padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
-        <input type="tel" placeholder="رقم التواصل (واتساب)" required style="padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
-        <select style="padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
-            <option>نوع العقار المطلوب</option>
-            <option>أرض سكنية</option>
-            <option>أرض تجارية</option>
-            <option>فيلا / عمارة</option>
-            <option>شقة تمليك</option>
-        </select>
-        <textarea placeholder="تفاصيل إضافية (المنطقة، الميزانية، إلخ)" style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; height: 100px;"></textarea>
-        <button type="submit" style="padding: 12px; background: #2c3e50; color: white; border: none; border-radius: 5px; cursor: pointer;">إرسال الطلب</button>
-    </form>
-</section>
+<div class="ea-container">
+    <section class="ea-request-box">
+        <h2>خدمة طلب عقار خاص</h2>
+        <p>بسبب خصوصية عروضنا وحرصنا على سرية البيانات، اترك مواصفات طلبك وسنتواصل معك بأفضل الفرص المتاحة سراً.</p>
+        <form class="ea-form">
+            <input type="text" placeholder="الاسم الكامل" required>
+            <input type="tel" placeholder="رقم الواتساب" required>
+            <select required>
+                <option value="">نوع العقار المطلوب</option>
+                <option>أرض (سكني/تجاري)</option>
+                <option>فلل وعمائر</option>
+                <option>شقق تمليك</option>
+            </select>
+            <input type="text" placeholder="الميزانية التقريبية">
+            <textarea placeholder="اكتب هنا أي تفاصيل إضافية عن الموقع المفضل أو المساحة المطلوبة..."></textarea>
+            <button type="submit">إرسال الطلب للخبير العقاري</button>
+        </form>
+    </section>
 
-<section style="padding: 40px; text-align: right; direction: rtl;">
-    <h2 style="color: #c0392b; border-bottom: 2px solid #c0392b; display: inline-block;">دليل التملك الآمن في عدن</h2>
-    <div style="margin-top: 20px; line-height: 1.8;">
-        <p><strong>1. التأكد من السجل العقاري:</strong> لا تعتمد على العقود الابتدائية فقط، تأكد من مطابقة بيانات البائع في مصلحة الأراضي.</p>
-        <p><strong>2. معاينة المخططات الرسمية:</strong> قبل شراء الأراضي، تأكد من وقوعها ضمن المخططات المعتمدة لضمان عدم وجود عوائق مستقبلية.</p>
-        <p><strong>3. التوثيق القضائي:</strong> نحرص في مكتب عماد عدن على أن تتم كافة عمليات البيع والشراء تحت إشراف قانوني وتوثيق رسمي.</p>
-    </div>
-</section>
+    <section class="ea-guide">
+        <h2 class="ea-guide-title">دليل التملك الآمن في عدن</h2>
+        <div class="ea-guide-grid">
+            <div class="ea-guide-card">
+                <h3>01. فحص الملكية الرسمي</h3>
+                <p>نحن في مكتب عماد عدن لا نعتمد على العقود الورقية العرفية فقط بل نقوم بمطابقة بيانات العقار في السجل العقاري ومصلحة الأراضي لضمان خلوه من النزاعات.</p>
+            </div>
+            <div class="ea-guide-card">
+                <h3>02. مطابقة المخططات المعتمدة</h3>
+                <p>نتأكد من أن الأرض تقع ضمن المخططات الحضرية الرسمية لعدن لضمان عدم وجود عوائق مستقبلية أو تعارض مع الخدمات العامة.</p>
+            </div>
+            <div class="ea-guide-card">
+                <h3>03. التوثيق القضائي والقانوني</h3>
+                <p>تتم جميع عمليات البيع والشراء عبر مكتبنا بإجراءات قانونية رسمية وتوثيق قضائي يضمن حق المشتري والبائع بشكل كامل وقطعي.</p>
+            </div>
+        </div>
+    </section>
+</div>
