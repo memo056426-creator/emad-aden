@@ -1,50 +1,102 @@
-<a href="https://wa.me/967773571889" style="position: fixed; width: 60px; height: 60px; bottom: 20px; right: 20px; background-color: #25d366; border-radius: 50px; text-align: center; box-shadow: 2px 2px 3px #999; z-index: 1000; display: flex; align-items: center; justify-content: center;" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width: 35px;" alt="WhatsApp">
-</a>
-
-<div style="max-width: 800px; margin: 0 auto; padding: 20px; font-family: sans-serif; direction: rtl; text-align: right; background: #fff;">
-    
-    <div style="text-align: center; margin-bottom: 40px;">
-        <img src="https://via.placeholder.com/150x150?text=LOGO" alt="شعار مكتب عماد عدن" style="max-width: 150px; margin-bottom: 10px;">
-        <h1 style="color: #2c3e50; margin: 0;">مكتب عماد عدن العقاري</h1>
-        <p style="color: #c5a059; font-weight: bold; margin-top: 5px;">فخامة الاستثمار</p>
-    </div>
-
-    <div style="margin-bottom: 40px; border: 1px solid #eee; padding: 25px; border-radius: 8px; background: #fafafa;">
-        <h2 style="color: #2c3e50; font-size: 20px; margin-bottom: 15px;">خدمة طلب عقار خاص</h2>
-        <p style="font-size: 14px; color: #666; margin-bottom: 20px;">نظراً لخصوصية السوق، اترك طلبك وسنتواصل معك بالعروض المتاحة سراً.</p>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكتب عماد عدن العقاري | فخامة الاستثمار</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold: #d4af37; --dark-bg: #0a0a0a; --card-bg: #1a1a1a; --text-color: #e0e0e0; }
+        body { font-family: 'Cairo', sans-serif; margin: 0; background: var(--dark-bg); color: var(--text-color); line-height: 1.8; }
+        header { background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(20,20,20,0.8) 100%); padding: 60px 20px; text-align: center; border-bottom: 2px solid var(--gold); position: relative; }
+        .logo-img { width: 160px; height: 160px; border-radius: 50%; border: 3px solid var(--gold); margin-bottom: 20px; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); object-fit: cover; }
+        .hero-title { font-size: 2.8rem; color: var(--gold); margin: 10px 0; font-weight: 700; letter-spacing: 1px; }
+        .hero-sub { font-size: 1.2rem; color: #bbb; max-width: 700px; margin: auto; }
+        .investment-section { background: var(--card-bg); padding: 80px 20px; text-align: center; border-top: 1px solid #333; }
+        .section-title { color: var(--gold); font-size: 2.2rem; margin-bottom: 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1200px; margin: auto; padding: 20px; }
+        .card { background: #111; border: 1px solid #333; border-radius: 15px; padding: 35px; transition: all 0.4s ease; position: relative; overflow: hidden; text-align: center; }
+        .card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2); }
+        .card i { font-size: 3rem; color: var(--gold); margin-bottom: 20px; }
+        .card h3 { font-size: 1.5rem; margin-bottom: 15px; color: #fff; }
+        .card p { font-size: 1rem; color: #999; }
+        .why-us { background: #050505; padding: 80px 20px; }
         
-        <form style="display: flex; flex-direction: column; gap: 12px;">
-            <input type="text" placeholder="الاسم الكامل" style="padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
-            <input type="tel" placeholder="رقم الواتساب" style="padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
-            <select style="padding: 12px; border: 1px solid #ddd; border-radius: 4px; background: #fff;">
-                <option value="">نوع العقار (أرض، فيلا، شقة...)</option>
-                <option>أرض سكنية</option>
-                <option>أرض تجارية</option>
-                <option>فلل وعمائر</option>
-                <option>شقق تمليك</option>
-            </select>
-            <textarea placeholder="الميزانية والمنطقة المفضلة..." style="padding: 12px; border: 1px solid #ddd; border-radius: 4px; height: 100px;"></textarea>
-            <button type="submit" style="padding: 14px; background: #2c3e50; color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer;">إرسال الطلب للخبير</button>
-        </form>
-    </div>
+        /* إضافات النماذج الجديدة لتناسب التصميم */
+        .request-form { background: #111; border: 1px solid var(--gold); border-radius: 15px; padding: 40px; max-width: 800px; margin: 40px auto; }
+        .form-input { width: 100%; padding: 12px; margin-bottom: 15px; background: #0a0a0a; border: 1px solid #333; color: white; border-radius: 8px; font-family: 'Cairo'; }
+        .form-input:focus { border-color: var(--gold); outline: none; }
+        .submit-btn { background: var(--gold); color: black; border: none; padding: 15px 30px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; font-family: 'Cairo'; font-size: 1.1rem; }
+        
+        .address-bar { background: linear-gradient(90deg, #1a1a1a, #000); padding: 30px; border-right: 8px solid var(--gold); border-radius: 10px; margin: 50px auto; max-width: 1000px; text-align: right; }
+        .whatsapp-btn { background: #25d366; color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.2rem; display: inline-flex; align-items: center; gap: 10px; margin-top: 30px; transition: 0.3s; }
+        .whatsapp-btn:hover { background: #128c7e; transform: scale(1.05); }
+        .floating-wa { position: fixed; bottom: 30px; left: 30px; background: #25d366; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0 5px 20px rgba(0,0,0,0.6); z-index: 1000; text-decoration: none; }
+        footer { padding: 40px; border-top: 1px solid #222; font-size: 0.9rem; color: #666; text-align: center; }
+    </style>
+</head>
+<body>
 
-    <div style="padding: 10px;">
-        <h2 style="color: #c0392b; font-size: 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 20px;">دليل التملك الآمن في عدن</h2>
-        <div style="line-height: 1.8;">
-            <div style="margin-bottom: 20px;">
-                <h3 style="color: #2c3e50; font-size: 17px; margin-bottom: 5px;">1. فحص الملكية الرسمي</h3>
-                <p style="margin: 0; color: #555;">نقوم بمطابقة بيانات العقار في السجل العقاري ومصلحة الأراضي لضمان خلوه من أي نزاعات قانونية.</p>
+<header>
+    <img src="logo.jpg" alt="مكتب عماد عدن العقاري" class="logo-img">
+    <h1 class="hero-title">مكتب عماد عدن العقاري</h1>
+    <p class="hero-sub">بوابتكم الموثوقة للاستثمار العقاري في قلب عدن.. خبرة تمتد لسنوات في السوق المحلي</p>
+</header>
+
+<section class="investment-section">
+    <div class="container">
+        <h2 class="section-title">لماذا الاستثمار العقاري في عدن؟</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>ملاذ آمن للقيمة</h3>
+                <p>يظل العقار هو الأصل الأمتن لحفظ قيمة أموالك ضد التقلبات الاقتصادية وضمان نمو مستدام لرأس المال.</p>
             </div>
-            <div style="margin-bottom: 20px;">
-                <h3 style="color: #2c3e50; font-size: 17px; margin-bottom: 5px;">2. مطابقة المخططات</h3>
-                <p style="margin: 0; color: #555;">نتأكد من وقوع العقار ضمن المخططات الحضرية الرسمية لمدينة عدن لضمان قانونية الموقع مستقبلاً.</p>
+            <div class="card">
+                <i class="fas fa-chart-line"></i>
+                <h3>عوائد استثمارية</h3>
+                <p>تتمتع عدن بطلب متزايد على السكن والتجارة، مما يضمن لك عوائد إيجارية مرتفعة وفرص إعادة بيع مربحة.</p>
             </div>
-            <div>
-                <h3 style="color: #2c3e50; font-size: 17px; margin-bottom: 5px;">3. التوثيق القضائي</h3>
-                <p style="margin: 0; color: #555;">تتم كافة العمليات بتوثيق رسمي وقضائي يحمي حقوق المشتري والبائع بشكل كامل وقطعي.</p>
+            <div class="card">
+                <i class="fas fa-city"></i>
+                <h3>مستقبل واعد</h3>
+                <p>موقع عدن الاستراتيجي يجعل من كل قطعة أرض أو مبنى فرصة ذهبية للمستقبل العمراني القادم.</p>
             </div>
         </div>
     </div>
+</section>
 
-</div>
+<section class="investment-section" style="background: #050505;">
+    <div class="container">
+        <h2 class="section-title">دليل التملك الآمن في عدن</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-file-contract"></i>
+                <h3>فحص الملكية الرسمي</h3>
+                <p>مطابقة بيانات العقار في السجل العقاري ومصلحة الأراضي لضمان خلوه من النزاعات.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-map-marked-alt"></i>
+                <h3>مطابقة المخططات</h3>
+                <p>التأكد من وقوع العقار ضمن المخططات الحضرية الرسمية لضمان قانونية الموقع.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-gavel"></i> التوثيق القضائي</h3>
+                <p>كافة العمليات تتم بتوثيق رسمي وقضائي يحمي حقوق المشتري والبائع بشكل قطعي.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="why-us">
+    <div class="container" style="text-align: center;">
+        <h2 class="section-title">خدماتنا العقارية</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>الأراضي والبيع</h3>
+                <p>نوفر لكم مساحات سكنية وتجارية بمواقع استراتيجية في عدن بضمانات كاملة.</p>
+            </div>
+            <div class="card">
+                <h3>العمائر والفلل</h3>
+                <p>شقق تمليك وإيجار وفلل فاخرة تناسب تطلعاتكم السكن
