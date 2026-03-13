@@ -27,13 +27,49 @@
         .social-links a { color: var(--gold); font-size: 2rem; transition: 0.3s; text-decoration: none; }
         .social-links a:hover { transform: scale(1.2); color: #fff; }
 
-        .float-container { position: fixed; bottom: 30px; left: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 9999; }
-        .btn-float { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 25px; color: white; text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.5); border: none; cursor: pointer; }
-        .wa-btn { background: #25d366; }
-        .req-btn { background: var(--gold); color: black; }
+        /* الزر العائم في منتصف الصفحة */
+        .req-btn-side { 
+            position: fixed; 
+            right: 0; 
+            top: 50%; 
+            transform: translateY(-50%); 
+            background: var(--gold); 
+            color: black; 
+            padding: 15px 25px; 
+            border-radius: 30px 0 0 30px; 
+            font-weight: bold; 
+            z-index: 9999; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            cursor: pointer; 
+            border: none; 
+            box-shadow: -2px 5px 15px rgba(0,0,0,0.5);
+            font-family: 'Cairo';
+            transition: 0.3s;
+        }
+        .req-btn-side:hover { padding-right: 35px; background: #e2c08d; }
+
+        .wa-btn-float { 
+            position: fixed; 
+            bottom: 30px; 
+            left: 30px; 
+            background: #25d366; 
+            color: white; 
+            width: 60px; 
+            height: 60px; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 25px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5); 
+            z-index: 9999; 
+            text-decoration: none;
+        }
 
         .modal { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; }
-        .modal-content { background: #1a1a1a; padding: 30px; border-radius: 15px; width: 90%; max-width: 450px; border: 1px solid var(--gold); }
+        .modal-content { background: #1a1a1a; padding: 30px; border-radius: 15px; width: 90%; max-width: 450px; border: 1px solid var(--gold); position: relative; }
         .form-input { width: 100%; padding: 12px; margin-bottom: 15px; background: #000; border: 1px solid #333; color: white; border-radius: 8px; font-family: 'Cairo'; box-sizing: border-box; }
 
         footer { text-align: center; padding: 40px; border-top: 1px solid #222; color: #777; font-size: 0.9rem; }
@@ -89,16 +125,17 @@
 <section class="social-section">
     <h2 class="section-title">تابعونا على منصات التواصل</h2>
     <div class="social-links">
-        <a href="https://www.facebook.com/share/18N2jZ5sYP/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.instagram.com/aleimad7aden/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://x.com/aleimad7aden" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://www.facebook.com/share/18N2jZ5sYP/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/aleimad7aden/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://x.com/aleimad7aden" target="_blank"><i class="fab fa-x-twitter"></i></a>
     </div>
 </section>
 
-<div class="float-container">
-    <a href="https://wa.me/967773571889" class="btn-float wa-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <button class="btn-float req-btn" onclick="toggleModal()"><i class="fas fa-clipboard-list"></i></button>
-</div>
+<button class="req-btn-side" onclick="toggleModal()">
+    <i class="fas fa-paper-plane"></i> اطلب عقارك الآن
+</button>
+
+<a href="https://wa.me/967773571889" class="wa-btn-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <div id="reqModal" class="modal">
     <div class="modal-content">
@@ -113,7 +150,7 @@
             </select>
             <textarea id="details" class="form-input" rows="3" placeholder="الميزانية والمنطقة..."></textarea>
             <button type="button" onclick="sendToWA()" style="background: var(--gold); width:100%; padding:15px; border:none; border-radius:8px; font-weight:bold; cursor:pointer;">إرسال الطلب</button>
-            <button type="button" onclick="toggleModal()" style="background:transparent; color:#777; width:100%; border:none; margin-top:10px; cursor:pointer;">إلغاء</button>
+            <button type="button" onclick="toggleModal()" style="background:transparent; color:#777; width:100%; border:none; margin-top:10px; cursor:pointer;">إغلاق</button>
         </form>
     </div>
 </div>
