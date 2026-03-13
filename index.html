@@ -1,79 +1,22 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مكتب عماد عدن العقاري | فخامة الاستثمار</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root { --gold: #d4af37; --dark-bg: #0a0a0a; --card-bg: #1a1a1a; --text-color: #e0e0e0; }
-        body { font-family: 'Cairo', sans-serif; margin: 0; background: var(--dark-bg); color: var(--text-color); line-height: 1.8; }
-        header { background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(20,20,20,0.8) 100%); padding: 60px 20px; text-align: center; border-bottom: 2px solid var(--gold); position: relative; }
-        .logo-img { width: 160px; height: 160px; border-radius: 50%; border: 3px solid var(--gold); margin-bottom: 20px; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); object-fit: cover; }
-        .hero-title { font-size: 2.8rem; color: var(--gold); margin: 10px 0; font-weight: 700; letter-spacing: 1px; }
-        .hero-sub { font-size: 1.2rem; color: #bbb; max-width: 700px; margin: auto; }
-        
-        /* خدمة طلب عقار - بداية الموقع */
-        .top-request-section { padding: 50px 20px; background: var(--dark-bg); }
-        .request-card { background: #111; border: 1px solid #333; border-top: 4px solid var(--gold); border-radius: 15px; padding: 40px; max-width: 850px; margin: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .form-title { color: var(--gold); font-size: 1.8rem; margin-bottom: 10px; text-align: center; }
-        .form-desc { color: #999; font-size: 0.95rem; margin-bottom: 30px; text-align: center; }
-        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
-        .main-input { width: 100%; padding: 14px; background: #0a0a0a; border: 1px solid #333; color: white; border-radius: 8px; font-family: 'Cairo'; box-sizing: border-box; }
-        .main-input:focus { border-color: var(--gold); outline: none; }
-        .submit-main { background: var(--gold); color: black; border: none; padding: 16px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; font-size: 1.1rem; transition: 0.3s; margin-top: 10px; }
-        .submit-main:hover { background: #b8952d; transform: scale(1.01); }
-
-        /* دليل التملك الآمن */
-        .safe-guide { margin-top: 50px; border-top: 1px solid #222; padding-top: 30px; }
-        .guide-item { margin-bottom: 20px; }
-        .guide-item h4 { color: var(--gold); margin-bottom: 5px; font-size: 1.1rem; }
-        .guide-item p { color: #bbb; font-size: 0.9rem; margin: 0; }
-
-        .investment-section { background: var(--card-bg); padding: 80px 20px; text-align: center; border-top: 1px solid #333; }
-        .section-title { color: var(--gold); font-size: 2.2rem; margin-bottom: 40px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1200px; margin: auto; padding: 20px; }
-        .card { background: #111; border: 1px solid #333; border-radius: 15px; padding: 35px; transition: all 0.4s ease; position: relative; overflow: hidden; }
-        .card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2); }
-        .card i { font-size: 3rem; color: var(--gold); margin-bottom: 20px; }
-        .card h3 { font-size: 1.5rem; margin-bottom: 15px; color: #fff; }
-        .card p { font-size: 1rem; color: #999; }
-        .why-us { background: #050505; padding: 80px 20px; }
-        .address-bar { background: linear-gradient(90deg, #1a1a1a, #000); padding: 30px; border-right: 8px solid var(--gold); border-radius: 10px; margin: 50px auto; max-width: 1000px; text-align: right; }
-        .floating-wa { position: fixed; bottom: 30px; left: 30px; background: #25d366; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0 5px 20px rgba(0,0,0,0.6); z-index: 1000; text-decoration: none; }
-        footer { padding: 40px; border-top: 1px solid #222; font-size: 0.9rem; color: #666; text-align: center; }
-        
-        @media (max-width: 600px) { .input-row { grid-template-columns: 1fr; } .hero-title { font-size: 2rem; } }
-    </style>
-</head>
-<body>
-
-<header>
-    <img src="logo.jpg" alt="مكتب عماد عدن العقاري" class="logo-img">
-    <h1 class="hero-title">مكتب عماد عدن العقاري</h1>
-    <p class="hero-sub">بوابتكم الموثوقة للاستثمار العقاري في قلب عدن</p>
-</header>
-
 <section class="top-request-section">
     <div class="request-card">
         <h2 class="form-title">خدمة طلب عقار خاص</h2>
         <p class="form-desc">نظراً لخصوصية السوق، اترك طلبك وسنتواصل معك بالعروض المتاحة سراً.</p>
         
-        <form>
+        <form id="propertyForm">
             <div class="input-row">
-                <input type="text" class="main-input" placeholder="الاسم الكامل" required>
-                <input type="tel" class="main-input" placeholder="رقم الواتساب" required>
+                <input type="text" id="userName" class="main-input" placeholder="الاسم الكامل" required>
+                <input type="tel" id="userPhone" class="main-input" placeholder="رقم التواصل" required>
             </div>
-            <select class="main-input">
+            <select id="propertyType" class="main-input" required>
                 <option value="">نوع العقار (أرض، فيلا، شقة...)</option>
-                <option>أرض سكنية</option>
-                <option>أرض تجارية</option>
-                <option>فلل وعمائر</option>
-                <option>شقق تمليك</option>
+                <option value="أرض سكنية">أرض سكنية</option>
+                <option value="أرض تجارية">أرض تجارية</option>
+                <option value="فلل وعمائر">فلل وعمائر</option>
+                <option value="شقق تمليك">شقق تمليك</option>
             </select>
-            <textarea class="main-input" rows="3" placeholder="الميزانية والمنطقة المفضلة..."></textarea>
-            <button type="submit" class="submit-main">إرسال الطلب للخبير</button>
+            <textarea id="userDetails" class="main-input" rows="3" placeholder="الميزانية والمنطقة المفضلة..."></textarea>
+            <button type="button" onclick="sendToWhatsApp()" class="submit-main">إرسال الطلب للخبير</button>
         </form>
 
         <div class="safe-guide">
@@ -88,59 +31,38 @@
             </div>
             <div class="guide-item">
                 <h4>3. التوثيق القضائي</h4>
-                <p>تتم كافة العمليات بتوثيق رسمي وقضائي يحمي حقوق المشتري والبائع بشكل قطعي.</p>
+                <p>تتم كافة العمليات بتوثيق رسمي وقضائي يحمي حقوق المشتري والبائع بشكل كامل وقطعي.</p>
             </div>
         </div>
     </div>
 </section>
 
-<section class="investment-section">
-    <div class="container">
-        <h2 class="section-title">لماذا الاستثمار العقاري في عدن؟</h2>
-        <div class="grid">
-            <div class="card">
-                <i class="fas fa-shield-alt"></i>
-                <h3>ملاذ آمن للقيمة</h3>
-                <p>يظل العقار هو الأصل الأمتن لحفظ قيمة أموالك ضد التقلبات الاقتصادية.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-chart-line"></i>
-                <h3>عوائد استثمارية</h3>
-                <p>تتمتع عدن بطلب متزايد على السكن والتجارة، مما يضمن لك عوائد مربحة.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-city"></i>
-                <h3>مستقبل واعد</h3>
-                <p>موقع عدن الاستراتيجي يجعل من كل عقار فرصة ذهبية للمستقبل.</p>
-            </div>
-        </div>
-    </div>
-</section>
+<script>
+function sendToWhatsApp() {
+    // جلب البيانات من الخانات
+    const name = document.getElementById('userName').value;
+    const phone = document.getElementById('userPhone').value;
+    const type = document.getElementById('propertyType').value;
+    const details = document.getElementById('userDetails').value;
 
-<section class="why-us">
-    <div class="container" style="text-align: center;">
-        <h2 class="section-title">خدماتنا العقارية</h2>
-        <div class="grid">
-            <div class="card"><h3>الأراضي والبيع</h3><p>مساحات سكنية وتجارية بمواقع استراتيجية بضمانات كاملة.</p></div>
-            <div class="card"><h3>العمائر والفلل</h3><p>شقق تمليك وفلل فاخرة تناسب تطلعاتكم السكنية.</p></div>
-            <div class="card"><h3>تثمين العقارات</h3><p>تثمين احترافي للعقارات وفقاً لأسعار السوق المحدثة.</p></div>
-        </div>
-    </div>
-</section>
+    // التأكد من تعبئة البيانات الأساسية
+    if(name == "" || phone == "" || type == "") {
+        alert("يرجى تعبئة البيانات الأساسية");
+        return;
+    }
 
-<div class="container">
-    <div class="address-bar">
-        <h3 style="color: var(--gold);"><i class="fas fa-map-marker-alt"></i> موقعنا الرسمي:</h3>
-        <p>عدن - القاهرة - شارع السنافر العام - قبل بريد القاهرة</p>
-        <p><i class="fas fa-phone"></i> للتواصل المباشر: 773571889</p>
-    </div>
-</div>
+    // رقم واتساب المكتب (عدله لو تبي)
+    const myNumber = "967773571889";
 
-<a href="https://wa.me/967773571889" class="floating-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    // صياغة الرسالة
+    const message = `السلام عليكم، أنا مهتم بطلب عقار من مكتب عماد عدن:
+*الاسم:* ${name}
+*رقم التواصل:* ${phone}
+*نوع العقار:* ${type}
+*تفاصيل إضافية:* ${details}`;
 
-<footer>
-    <p>جميع الحقوق محفوظة لمكتب عماد عدن العقاري © 2026</p>
-</footer>
-
-</body>
-</html>
+    // فتح رابط الواتساب
+    const whatsappUrl = `https://wa.me/${myNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+}
+</script>
