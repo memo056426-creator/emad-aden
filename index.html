@@ -3,71 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مكتب عماد عدن العقاري | الريادة العقارية والاستشارات</title>
+    <title>مكتب عماد عدن العقاري | الاستشارات والريادة العقارية</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #d4af37; --dark-bg: #0a0a0a; --card-bg: #161616; --text-color: #e0e0e0; --accent-red: #c0392b; }
+        :root { --gold: #d4af37; --dark-bg: #0a0a0a; --card-bg: #161616; --text-color: #e0e0e0; }
         body { font-family: 'Cairo', sans-serif; margin: 0; background: var(--dark-bg); color: var(--text-color); line-height: 1.8; scroll-behavior: smooth; overflow-x: hidden; }
         
-        header { background: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.9) 100%); padding: 80px 20px; text-align: center; border-bottom: 2px solid var(--gold); }
-        .logo-img { width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--gold); margin-bottom: 20px; object-fit: cover; box-shadow: 0 0 30px rgba(212, 175, 55, 0.2); }
-        .hero-title { font-size: 2.8rem; color: var(--gold); margin: 10px 0; font-weight: 800; }
-        .hero-sub { font-size: 1.2rem; color: #999; max-width: 800px; margin: auto; }
+        header { background: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.9) 100%); padding: 100px 20px; text-align: center; border-bottom: 2px solid var(--gold); }
+        .logo-img { width: 150px; height: 150px; border-radius: 50%; border: 3px solid var(--gold); margin-bottom: 20px; object-fit: cover; box-shadow: 0 0 30px rgba(212, 175, 55, 0.2); }
+        .hero-title { font-size: 3.2rem; color: var(--gold); margin: 10px 0; font-weight: 800; }
+        .hero-sub { font-size: 1.4rem; color: #999; max-width: 800px; margin: auto; }
 
         section { padding: 80px 20px; max-width: 1200px; margin: auto; border-bottom: 1px solid #222; }
         .section-title { color: var(--gold); font-size: 2.2rem; text-align: center; margin-bottom: 50px; font-weight: 700; }
         .section-title span { color: #fff; display: block; font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; opacity: 0.6; }
 
         .consult-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-        .consult-card { background: var(--card-bg); padding: 30px; border-radius: 15px; border-left: 4px solid var(--gold); transition: 0.4s; }
+        .consult-card { background: var(--card-bg); padding: 35px; border-radius: 15px; border-left: 4px solid var(--gold); transition: 0.4s; }
         .consult-card h3 { color: var(--gold); font-size: 1.5rem; margin-top: 0; }
-        .consult-card p { font-size: 1rem; color: #bbb; text-align: justify; }
+        .consult-card p { font-size: 0.95rem; color: #bbb; text-align: justify; margin-bottom: 0; }
 
-        /* دليل المديريات - صغير لملائمة الهاتف */
-        .district-table-wrapper { width: 100%; overflow-x: auto; margin-top: 30px; border-radius: 10px; }
-        .district-table { width: 100%; border-collapse: collapse; background: #111; min-width: 500px; }
-        .district-table th { background: var(--gold); color: black; padding: 12px; text-align: center; font-size: 1rem; }
-        .district-table td { padding: 12px; border: 1px solid #222; text-align: center; color: #ccc; font-size: 0.9rem; }
+        /* جدول المديريات - أصغر لملائمة الهاتف */
+        .district-table-wrapper { width: 100%; overflow-x: auto; margin-top: 20px; border-radius: 10px; }
+        .district-table { width: 100%; border-collapse: collapse; background: #111; min-width: 450px; }
+        .district-table th { background: var(--gold); color: black; padding: 10px; text-align: center; font-size: 0.85rem; font-weight: 800; }
+        .district-table td { padding: 10px; border: 1px solid #222; text-align: center; color: #ccc; font-size: 0.8rem; line-height: 1.4; }
 
-        /* الزر العائم الشفاف - يفتح النافذة */
+        /* الزر العائم - شفافية أكثر (خفي تقريباً) */
         .req-btn-side { 
             position: fixed; 
             right: 0; 
             top: 50%; 
             transform: translateY(-50%); 
-            background: rgba(212, 175, 55, 0.2); 
-            backdrop-filter: blur(10px); 
-            -webkit-backdrop-filter: blur(10px);
-            color: var(--gold); 
-            padding: 15px 20px; 
+            background: rgba(212, 175, 55, 0.08); /* شفافية عالية جداً */
+            backdrop-filter: blur(5px); 
+            -webkit-backdrop-filter: blur(5px);
+            color: rgba(212, 175, 55, 0.6); 
+            padding: 12px 20px; 
             border-radius: 40px 0 0 40px; 
             font-weight: 800; 
             z-index: 9999; 
             display: flex; 
             align-items: center; 
-            gap: 10px; 
+            gap: 8px; 
             cursor: pointer; 
-            border: 1px solid rgba(212, 175, 55, 0.3); 
+            border: 1px solid rgba(212, 175, 55, 0.1); 
             border-right: none;
             font-family: 'Cairo';
-            box-shadow: -5px 5px 20px rgba(0,0,0,0.3);
+            text-decoration: none;
             transition: 0.4s ease;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
-        .req-btn-side:hover { background: var(--gold); color: black; padding-right: 30px; }
+        .req-btn-side:hover { background: var(--gold); color: black; padding-right: 30px; opacity: 1; }
 
-        .wa-btn-float { position: fixed; bottom: 30px; left: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 8px 25px rgba(0,0,0,0.5); z-index: 9999; text-decoration: none; transition: 0.3s; }
+        .wa-btn-float { position: fixed; bottom: 30px; left: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 8px 25px rgba(0,0,0,0.5); z-index: 9999; text-decoration: none; }
 
-        /* النافذة المنبثقة */
-        .modal { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; backdrop-filter: blur(5px); }
-        .modal-content { background: #1a1a1a; padding: 30px; border-radius: 20px; width: 90%; max-width: 450px; border: 1px solid var(--gold); position: relative; }
-        .form-input { width: 100%; padding: 12px; margin-bottom: 15px; background: #000; border: 1px solid #333; color: white; border-radius: 10px; font-family: 'Cairo'; box-sizing: border-box; font-size: 0.95rem; }
-        .form-input:focus { border-color: var(--gold); outline: none; }
-        .submit-btn { background: var(--gold); color: black; width: 100%; padding: 14px; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 1rem; font-family: 'Cairo'; }
-
-        .social-links-footer { display: flex; justify-content: center; gap: 20px; padding: 30px; background: #080808; }
+        .social-links-footer { display: flex; justify-content: center; gap: 20px; padding: 30px; background: #080808; border-top: 1px solid #222; }
         .social-links-footer a { color: var(--gold); font-size: 1.8rem; transition: 0.3s; }
+        .social-links-footer a:hover { color: #fff; }
+
+        .modal { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; backdrop-filter: blur(5px); }
+        .modal-content { background: #1a1a1a; padding: 30px; border-radius: 20px; width: 90%; max-width: 450px; border: 1px solid var(--gold); }
+        .form-input { width: 100%; padding: 12px; margin-bottom: 15px; background: #000; border: 1px solid #333; color: white; border-radius: 10px; font-family: 'Cairo'; box-sizing: border-box; font-size: 0.95rem; }
+        .submit-btn { background: var(--gold); color: black; width: 100%; padding: 14px; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; font-family: 'Cairo'; }
 
         footer { text-align: center; padding: 40px 20px; background: #050505; color: #666; font-size: 0.85rem; }
     </style>
@@ -78,19 +77,23 @@
     <img src="logo.jpg" alt="مكتب عماد عدن" class="logo-img">
     <p style="color: var(--gold); font-weight: bold; letter-spacing: 2px;">ADEN REAL ESTATE EXPERT</p>
     <h1 class="hero-title">مكتب عماد عدن العقاري</h1>
-    <p class="hero-sub">المرجع الاستشاري الأول في العاصمة عدن.. رؤية خبيرة وحماية قانونية.</p>
+    <p class="hero-sub">بوابتكم الاستشارية الموثوقة في العاصمة عدن.. حيث تلتقي الخبرة بالحماية القانونية المطلقة.</p>
 </header>
 
 <section>
-    <h2 class="section-title"><span>Market Intelligence</span>رؤية الخبير لسوق عدن العقاري</h2>
+    <h2 class="section-title"><span>Market Intelligence</span>الرؤية الاستراتيجية والاستشارية</h2>
     <div class="consult-grid">
         <div class="consult-card">
-            <h3>ديناميكيات القيمة</h3>
-            <p>نساعدك في اقتناص الفرص في مناطق النمو الصفرية التي ستشهد طفرة سعرية كبرى نتيجة لخطط البنية التحتية القادمة.</p>
+            <h3>ديناميكيات القيمة في عدن</h3>
+            <p>سوق عدن يتميز بمرونة عالية وقدرة على امتصاص الأزمات. نحلل لك "مناطق النمو الصفرية" التي تسبق الزيادات السعرية الناتجة عن خطط التوسع الحضري والبنية التحتية، لنضمن لك شراء المتر بأقل سعر وتسييله بأعلى عائد.</p>
         </div>
         <div class="consult-card">
-            <h3>استراتيجيات الاستثمار</h3>
-            <p>سواء كنت تبحث عن عائد إيجاري أو نمو رأسمالي، نقدم لك استشارات مبنية على أرقام حقيقية بعيداً عن التكهنات.</p>
+            <h3>استراتيجيات الاستثمار الآمن</h3>
+            <p>سواء كنت تهدف للعائد الإيجاري المستدام أو المضاربة العقارية، نضع بين يديك تقارير حقيقية حول حركة السيولة في مديريات عدن المختلفة، مما يجنبك الدخول في "فقاعات" سعرية أو مناطق نزاع قانوني.</p>
+        </div>
+        <div class="consult-card">
+            <h3>الاستثمار العقاري للمغتربين</h3>
+            <p>خدمة استشارية خاصة للمغتربين تبدأ من البحث عن الفرصة المناسبة، فحص الوثائق بدقة متناهية، وحتى الإشراف على التوثيق الرسمي وقبض الثمن أو تسليمه، لضمان استثمار أموالك في عدن وأنت في مكانك بكل طمأنينة.</p>
         </div>
     </div>
 </section>
@@ -99,12 +102,16 @@
     <h2 class="section-title"><span>Legal Safety</span>المظلة القانونية وحماية الملكية</h2>
     <div class="consult-grid">
         <div class="consult-card" style="border-left-color: #c0392b;">
-            <h3>فحص السجل والملفات</h3>
-            <p>نتأكد من ملف العقار في مصلحة الأراضي وصحة الصكوك السابقة لضمان استلامك وثيقة شرعية وقانونية 100%.</p>
+            <h3>فحص السجل العقاري الرسمي</h3>
+            <p>نقوم بمراجعة السجلات في مصلحة أراضي وعقارات الدولة للتأكد من خلو العقار من النزاعات، صحة التسلسل العُقدي، وعدم وجود تداخل في الملكية، لضمان استلامك وثيقة شرعية وقانونية لا تقبل الجدل.</p>
         </div>
         <div class="consult-card" style="border-left-color: #c0392b;">
-            <h3>إدارة الأملاك (للمغتربين)</h3>
-            <p>ندير عقارات المغتربين باحترافية: تحصيل الإيجارات، الصيانة، والتمثيل القانوني مع تقارير مالية شهرية.</p>
+            <h3>التوثيق القضائي والتعميد</h3>
+            <p>نحرص في مكتب عماد عدن على أن تتم كافة عمليات البيع والشراء عبر إجراءات قانونية صارمة، تشمل التوثيق في المحاكم المختصة والسجل العقاري، لضمان حماية حقوق المشتري والبائع بشكل قطعي وأبدي.</p>
+        </div>
+        <div class="consult-card" style="border-left-color: #c0392b;">
+            <h3>إدارة وحماية الأصول</h3>
+            <p>نقدم استشارات حول كيفية إدارة الأملاك العقارية، تحصيل الإيجارات، ومتابعة القضايا القانونية المتعلقة بالعين، مما يحول عقارك إلى أصل مدر للربح دون صداع المتابعة اليومية أو المشاكل العارضة.</p>
         </div>
     </div>
 </section>
@@ -118,16 +125,17 @@
                     <th>المنطقة</th>
                     <th>نوع العقار المفضل</th>
                     <th>حالة النمو</th>
-                    <th>توصية المكتب</th>
+                    <th>نصيحة مكتب عماد عدن</th>
                 </tr>
             </thead>
             <tbody>
-                <tr><td>خور مكسر</td><td>سكني فخم / إداري</td><td>ثابت مرتفع</td><td>للراغبين في الهيبة والقرب من الخدمات الدولية.</td></tr>
-                <tr><td>المنصورة</td><td>تجاري / أبراج</td><td>نمو متسارع</td><td>القلب التجاري؛ الأفضل للمحلات والمشاريع الحيوية.</td></tr>
-                <tr><td>بير فضل</td><td>أراضي سكنية / مخططات</td><td>نمو ممتاز</td><td>فرصة ذهبية للمستثمرين الصبورين (مساحات واسعة).</td></tr>
-                <tr><td>الممدارة</td><td>سكني شعبي / تجاري</td><td>عائد متوسط</td><td>مثالية للعقارات الشعبية والأنشطة المحلية.</td></tr>
-                <tr><td>بير احمد</td><td>أراضي خام / زراعي</td><td>نمو طويل</td><td>اقتناء أراضي خام كبيرة للتوسع القادم.</td></tr>
-                <tr><td>البريقة / الشعب</td><td>أراضي استثمارية / فلل</td><td>مستقبل واعد</td><td>توسع عمراني فريد؛ مثالية للمدى الطويل.</td></tr>
+                <tr><td>خور مكسر</td><td>سكني فخم / إداري</td><td>ثابت مرتفع</td><td>للراغبين في الهيبة والقرب من الخدمات الدولية والدبلوماسية.</td></tr>
+                <tr><td>المنصورة</td><td>تجاري / أبراج</td><td>نمو متسارع</td><td>القلب التجاري؛ الأفضل للمحلات والمشاريع ذات الحركة البشرية.</td></tr>
+                <tr><td>بير فضل</td><td>أراضي سكنية / مخططات</td><td>نمو ممتاز</td><td>فرصة ذهبية للمستثمرين الصبورين الراغبين في مساحات واسعة.</td></tr>
+                <tr><td>الممدارة</td><td>سكني شعبي / تجاري</td><td>عائد متوسط</td><td>مثالية للعقارات الشعبية والأنشطة المحلية ذات العائد الإيجاري.</td></tr>
+                <tr><td>بير احمد</td><td>أراضي خام / زراعي</td><td>نمو طويل</td><td>اقتناء أراضي خام كبيرة تمهيداً للتوسع العمراني القادم للمدينة.</td></tr>
+                <tr><td>البريقة / الشعب</td><td>أراضي استثمارية / فلل</td><td>مستقبل واعد</td><td>توسع عمراني فريد بلمسات ساحلية؛ مثالية للمدى الطويل والخصوصية.</td></tr>
+                <tr><td>الشيخ عثمان</td><td>تجاري بحت / أسواق</td><td>سيولة عالية</td><td>الأفضل للمحلات التجارية التي تتطلب كثافة سكانية وحركة يومية.</td></tr>
             </tbody>
         </table>
     </div>
@@ -139,55 +147,16 @@
     <a href="https://x.com/aleimad7aden" target="_blank"><i class="fab fa-x-twitter"></i></a>
 </div>
 
-<button class="req-btn-side" onclick="toggleModal()">
+<a href="https://wa.me/967773571889?text=السلام%20عليكم%20،%20أريد%20طلب%20عقار%20من%20مكتب%20عماد%20عدن" class="req-btn-side" target="_blank">
     <i class="fas fa-paper-plane"></i> اطلب عقارك الآن
-</button>
-
-<a href="https://wa.me/967773571889" class="wa-btn-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
 </a>
 
-<div id="reqModal" class="modal">
-    <div class="modal-content">
-        <h2 style="color: var(--gold); text-align: center; margin-bottom: 25px; font-size: 1.4rem;">استشارة عقارية خاصة</h2>
-        <form id="propForm">
-            <input type="text" id="name" class="form-input" placeholder="الاسم الكامل" required>
-            <input type="tel" id="phone" class="form-input" placeholder="رقم الواتساب" required>
-            <select id="type" class="form-input">
-                <option value="طلب شراء عقار">طلب شراء عقار</option>
-                <option value="تثمين عقار حالي">تثمين عقار حالي</option>
-                <option value="إدارة أملاك لمغترب">إدارة أملاك لمغترب</option>
-                <option value="استشارة قانونية عقارية">استشارة قانونية عقارية</option>
-            </select>
-            <textarea id="details" class="form-input" rows="4" placeholder="يرجى ذكر المنطقة المفضلة والميزانية المرصودة..."></textarea>
-            <button type="button" onclick="sendToWA()" class="submit-btn">إرسال الطلب للخبير</button>
-            <button type="button" onclick="toggleModal()" style="background:transparent; color:#555; width:100%; border:none; margin-top:10px; cursor:pointer; font-family:'Cairo';">إلغاء</button>
-        </form>
-    </div>
-</div>
+<a href="https://wa.me/967773571889" class="wa-btn-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <footer>
-    <p>عدن - القاهرة - شارع السنافر العام | 773571889</p>
+    <p>عدن - القاهرة - شارع السنافر العام | تواصل مباشر: 773571889</p>
     <p>جميع الحقوق محفوظة لمكتب عماد عدن العقاري © 2026</p>
 </footer>
 
-<script>
-    function toggleModal() {
-        const m = document.getElementById('reqModal');
-        m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
-    }
-    function sendToWA() {
-        const name = document.getElementById('name').value;
-        const phone = document.getElementById('phone').value;
-        const type = document.getElementById('type').value;
-        const details = document.getElementById('details').value;
-        if(!name || !phone) { alert("لطفاً، أكمل البيانات الأساسية"); return; }
-        const msg = `طلب استشارة من الموقع:\n- الاسم: ${name}\n- الهاتف: ${phone}\n- النوع: ${type}\n- التفاصيل: ${details}`;
-        window.open(`https://wa.me/967773571889?text=${encodeURIComponent(msg)}`, '_blank');
-    }
-    window.onclick = function(event) {
-        if (event.target == document.getElementById('reqModal')) toggleModal();
-    }
-</script>
 </body>
 </html>
