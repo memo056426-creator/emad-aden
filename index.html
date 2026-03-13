@@ -8,26 +8,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root { --gold: #d4af37; --dark-bg: #0a0a0a; --card-bg: #1a1a1a; --text-color: #e0e0e0; --accent-red: #c0392b; }
-        body { font-family: 'Cairo', sans-serif; margin: 0; background: var(--dark-bg); color: var(--text-color); line-height: 1.8; scroll-behavior: smooth; }
+        body { font-family: 'Cairo', sans-serif; margin: 0; background: var(--dark-bg); color: var(--text-color); line-height: 1.8; scroll-behavior: smooth; overflow-x: hidden; }
         
         header { background: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.9) 100%); padding: 60px 20px; text-align: center; border-bottom: 2px solid var(--gold); }
-        .logo-img { width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--gold); margin-bottom: 20px; object-fit: cover; }
+        .logo-img { width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--gold); margin-bottom: 20px; object-fit: cover; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
         .hero-title { font-size: 2.8rem; color: var(--gold); margin: 10px 0; }
         
-        section { padding: 60px 20px; max-width: 1100px; margin: auto; }
-        .section-title { color: var(--gold); font-size: 2rem; text-align: center; margin-bottom: 40px; }
+        section { padding: 80px 20px; max-width: 1100px; margin: auto; }
+        .section-title { color: var(--gold); font-size: 2.2rem; text-align: center; margin-bottom: 50px; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .info-card { background: var(--card-bg); border: 1px solid #333; padding: 25px; border-radius: 12px; text-align: center; }
-        .info-card i { color: var(--gold); font-size: 2.5rem; margin-bottom: 15px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .info-card { background: var(--card-bg); border: 1px solid #333; padding: 35px; border-radius: 15px; text-align: center; transition: 0.3s; }
+        .info-card:hover { border-color: var(--gold); transform: translateY(-10px); }
+        .info-card i { color: var(--gold); font-size: 3rem; margin-bottom: 20px; }
 
-        /* قسم التواصل الاجتماعي */
-        .social-section { text-align: center; padding: 40px 20px; background: #111; border-top: 1px solid #333; }
-        .social-links { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
-        .social-links a { color: var(--gold); font-size: 2rem; transition: 0.3s; text-decoration: none; }
-        .social-links a:hover { transform: scale(1.2); color: #fff; }
-
-        /* الزر العائم في منتصف الصفحة */
+        /* الزر العائم في منتصف يمين الصفحة */
         .req-btn-side { 
             position: fixed; 
             right: 0; 
@@ -37,50 +32,61 @@
             color: black; 
             padding: 15px 25px; 
             border-radius: 30px 0 0 30px; 
-            font-weight: bold; 
+            font-weight: 700; 
             z-index: 9999; 
             display: flex; 
             align-items: center; 
-            gap: 10px; 
+            gap: 12px; 
             cursor: pointer; 
             border: none; 
-            box-shadow: -2px 5px 15px rgba(0,0,0,0.5);
+            box-shadow: -5px 5px 20px rgba(0,0,0,0.5);
             font-family: 'Cairo';
-            transition: 0.3s;
+            white-space: nowrap;
+            transition: all 0.3s ease;
         }
-        .req-btn-side:hover { padding-right: 35px; background: #e2c08d; }
+        .req-btn-side:hover { padding-right: 35px; background: #f1c40f; }
 
+        /* زر الواتساب تحت يسار */
         .wa-btn-float { 
             position: fixed; 
             bottom: 30px; 
             left: 30px; 
             background: #25d366; 
             color: white; 
-            width: 60px; 
-            height: 60px; 
+            width: 65px; 
+            height: 65px; 
             border-radius: 50%; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
-            font-size: 25px; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5); 
+            font-size: 32px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.6); 
             z-index: 9999; 
             text-decoration: none;
+            transition: 0.3s;
         }
+        .wa-btn-float:hover { transform: scale(1.1); }
 
-        .modal { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; }
-        .modal-content { background: #1a1a1a; padding: 30px; border-radius: 15px; width: 90%; max-width: 450px; border: 1px solid var(--gold); position: relative; }
-        .form-input { width: 100%; padding: 12px; margin-bottom: 15px; background: #000; border: 1px solid #333; color: white; border-radius: 8px; font-family: 'Cairo'; box-sizing: border-box; }
+        /* النافذة المنبثقة للطلب */
+        .modal { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; }
+        .modal-content { background: #1a1a1a; padding: 40px; border-radius: 20px; width: 90%; max-width: 500px; border: 1px solid var(--gold); position: relative; box-shadow: 0 0 50px rgba(212,175,55,0.2); }
+        .form-input { width: 100%; padding: 15px; margin-bottom: 20px; background: #000; border: 1px solid #333; color: white; border-radius: 10px; font-family: 'Cairo'; box-sizing: border-box; font-size: 1rem; }
+        .form-input:focus { border-color: var(--gold); outline: none; }
+        .submit-btn { background: var(--gold); color: black; width: 100%; padding: 16px; border: none; border-radius: 10px; font-weight: bold; font-size: 1.1rem; cursor: pointer; font-family: 'Cairo'; }
+        
+        .social-links { display: flex; justify-content: center; gap: 25px; padding: 40px; background: #050505; }
+        .social-links a { color: var(--gold); font-size: 2.2rem; transition: 0.3s; }
+        .social-links a:hover { color: #fff; transform: scale(1.2); }
 
-        footer { text-align: center; padding: 40px; border-top: 1px solid #222; color: #777; font-size: 0.9rem; }
+        footer { text-align: center; padding: 50px; border-top: 1px solid #222; color: #777; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="logo.jpg" alt="مكتب عماد عدن العقاري" class="logo-img">
+    <img src="logo.jpg" alt="شعار مكتب عماد عدن" class="logo-img">
     <h1 class="hero-title">مكتب عماد عدن العقاري</h1>
-    <p>بوابتكم الموثوقة للاستثمار العقاري في قلب عدن</p>
+    <p style="color: #bbb;">بوابتكم الموثوقة للاستثمار العقاري في قلب عدن</p>
 </header>
 
 <section id="why-aden">
@@ -88,69 +94,68 @@
     <div class="grid">
         <div class="info-card">
             <i class="fas fa-chart-line"></i>
-            <h3>عوائد استثمارية</h3>
-            <p>تتمتع عدن بطلب متزايد، مما يضمن عوائد إيجارية مرتفعة وفرص إعادة بيع مربحة.</p>
+            <h3>عوائد مرتفعة</h3>
+            <p>طلب متزايد يضمن لك أفضل عوائد الإيجار وإعادة البيع في السوق المحلي.</p>
         </div>
         <div class="info-card">
             <i class="fas fa-shield-alt"></i>
-            <h3>ملاذ آمن</h3>
-            <p>العقار هو الأصل الأمتن لحفظ قيمة أموالك ضد التقلبات الاقتصادية.</p>
+            <h3>استثمار آمن</h3>
+            <p>العقار يظل الأصل الأمتن لحفظ قيمة مدخراتك ضد أي تقلبات اقتصادية.</p>
         </div>
         <div class="info-card">
             <i class="fas fa-city"></i>
-            <h3>مستقبل واعد</h3>
-            <p>موقع عدن الاستراتيجي يجعل من كل عقار فرصة ذهبية للمستقبل العمراني.</p>
+            <h3>توسع عمراني</h3>
+            <p>موقع عدن الاستراتيجي يفتح آفاقاً ذهبية للمستشارين والمستثمرين الطموحين.</p>
         </div>
     </div>
 </section>
 
-<section style="background: #050505;">
-    <h2 class="section-title">دليل التملك الآمن</h2>
+<section style="background: #050505; border-top: 1px solid #222;">
+    <h2 class="section-title">دليل التملك الآمن في عدن</h2>
     <div style="max-width: 800px; margin: auto;">
-        <div style="border-right: 4px solid var(--gold); padding: 15px; margin-bottom: 20px; background: #111;">
-            <h3 style="color: var(--gold); margin: 0;">1. فحص الملكية الرسمي</h3>
-            <p>مطابقة بيانات العقار في السجل العقاري ومصلحة الأراضي لضمان خلوه من النزاعات.</p>
+        <div style="border-right: 5px solid var(--gold); padding: 20px; margin-bottom: 25px; background: #111; border-radius: 0 10px 10px 0;">
+            <h3 style="color: var(--gold); margin: 0;">1. فحص السجل العقاري</h3>
+            <p>نتحقق من صحة العقود في مصلحة الأراضي لضمان خلو العقار من أي نزاعات قانونية.</p>
         </div>
-        <div style="border-right: 4px solid var(--gold); padding: 15px; margin-bottom: 20px; background: #111;">
+        <div style="border-right: 5px solid var(--gold); padding: 20px; margin-bottom: 25px; background: #111; border-radius: 0 10px 10px 0;">
             <h3 style="color: var(--gold); margin: 0;">2. مطابقة المخططات</h3>
-            <p>التأكد من وقوع العقار ضمن المخططات الحضرية الرسمية لضمان قانونية الموقع.</p>
+            <p>نتأكد من أن الموقع يقع ضمن المخططات الحضرية الرسمية المعتمدة لمدينة عدن.</p>
         </div>
-        <div style="border-right: 4px solid var(--gold); padding: 15px; margin-bottom: 20px; background: #111;">
+        <div style="border-right: 5px solid var(--gold); padding: 20px; margin-bottom: 25px; background: #111; border-radius: 0 10px 10px 0;">
             <h3 style="color: var(--gold); margin: 0;">3. التوثيق القضائي</h3>
-            <p>كافة العمليات تتم بتوثيق رسمي وقضائي يحمي حقوق المشتري والبائع بشكل قطعي.</p>
+            <p>نشرف على عمليات البيع والشراء بتوثيق رسمي وقضائي يحمي كافة حقوقكم.</p>
         </div>
     </div>
 </section>
 
-<section class="social-section">
-    <h2 class="section-title">تابعونا على منصات التواصل</h2>
-    <div class="social-links">
-        <a href="https://www.facebook.com/share/18N2jZ5sYP/" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.instagram.com/aleimad7aden/" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://x.com/aleimad7aden" target="_blank"><i class="fab fa-x-twitter"></i></a>
-    </div>
-</section>
+<div class="social-links">
+    <a href="https://www.facebook.com/share/18N2jZ5sYP/" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/aleimad7aden/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://x.com/aleimad7aden" target="_blank"><i class="fab fa-x-twitter"></i></a>
+</div>
 
 <button class="req-btn-side" onclick="toggleModal()">
-    <i class="fas fa-paper-plane"></i> اطلب عقارك الآن
+    <i class="fas fa-hand-pointer"></i> اطلب عقارك الآن
 </button>
 
-<a href="https://wa.me/967773571889" class="wa-btn-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a href="https://wa.me/967773571889" class="wa-btn-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
 
 <div id="reqModal" class="modal">
     <div class="modal-content">
-        <h2 style="color: var(--gold); text-align: center;">اطلب عقارك الخاص</h2>
+        <h2 style="color: var(--gold); text-align: center; margin-bottom: 30px;">خدمة طلب عقار خاص</h2>
         <form id="propForm">
             <input type="text" id="name" class="form-input" placeholder="الاسم الكامل" required>
             <input type="tel" id="phone" class="form-input" placeholder="رقم الواتساب" required>
             <select id="type" class="form-input">
-                <option value="أرض">أرض</option>
-                <option value="فيلا">فيلا</option>
-                <option value="شقة">شقة</option>
+                <option value="أرض">أرض (سكني/تجاري)</option>
+                <option value="فيلا">فيلا / عمارة</option>
+                <option value="شقة">شقة تمليك</option>
             </select>
-            <textarea id="details" class="form-input" rows="3" placeholder="الميزانية والمنطقة..."></textarea>
-            <button type="button" onclick="sendToWA()" style="background: var(--gold); width:100%; padding:15px; border:none; border-radius:8px; font-weight:bold; cursor:pointer;">إرسال الطلب</button>
-            <button type="button" onclick="toggleModal()" style="background:transparent; color:#777; width:100%; border:none; margin-top:10px; cursor:pointer;">إغلاق</button>
+            <textarea id="details" class="form-input" rows="4" placeholder="الميزانية والمنطقة المفضلة..."></textarea>
+            <button type="button" onclick="sendToWA()" class="submit-btn">إرسال الطلب عبر واتساب</button>
+            <button type="button" onclick="toggleModal()" style="background:transparent; color:#666; width:100%; border:none; margin-top:15px; cursor:pointer;">إغلاق النافذة</button>
         </form>
     </div>
 </div>
@@ -170,9 +175,12 @@
         const phone = document.getElementById('phone').value;
         const type = document.getElementById('type').value;
         const details = document.getElementById('details').value;
-        if(!name || !phone) { alert("يرجى إكمال البيانات"); return; }
-        const msg = `طلب عقار جديد:\n- الاسم: ${name}\n- الهاتف: ${phone}\n- النوع: ${type}\n- التفاصيل: ${details}`;
+        if(!name || !phone) { alert("أكمل البيانات يا شيخنا لاهنت"); return; }
+        const msg = `طلب عقار جديد من الموقع:\n- الاسم: ${name}\n- الهاتف: ${phone}\n- النوع: ${type}\n- التفاصيل: ${details}`;
         window.open(`https://wa.me/967773571889?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('reqModal')) toggleModal();
     }
 </script>
 </body>
